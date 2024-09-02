@@ -1,9 +1,10 @@
+import Modal from "./components/Modal";
 import Parent from "./components/Parent";
 
 function App() {
     return (
         <div className="App">
-            <Parent />
+            <Modal />
         </div>
     );
 }
