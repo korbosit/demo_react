@@ -1,10 +1,24 @@
-import Modal from "./components/Modal";
-import Parent from "./components/Parent";
+import { useState, useReducer } from "react";
 
 function App() {
+    const [state, dispatch] = useReducer(reducer, { count: 0 });
+    function reducer(state, action) {
+        if (action.type === "increment") {
+            return { ...state, count: state.count + action.payload }; //state + action.payload;
+        }
+        if (action.type === "decrement") {
+            return { ...state, count: state.count - action.payload }; //state - action.payload;
+        }
+    }
     return (
-        <div className="App">
-            <Modal />
+        <div>
+            {state.count}
+            <button onClick={() => dispatch({ type: "increment", payload: 1 })}>
+                Increment count
+            </button>
+            <button onClick={() => dispatch({ type: "decrement", payload: 1 })}>
+                Decrement count
+            </button>
         </div>
     );
 }
