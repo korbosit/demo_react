@@ -5,4 +5,5 @@ function Child({ count }) {
     return <div>Child count is {count} </div>;
 }
 
+// use Memo
 export default React.memo(Child);
